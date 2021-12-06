@@ -11,10 +11,10 @@ var connection = new Sequelize('crud_protudos', 'root', '', {  // var connection
 })
 var conexao = connection.authenticate() // Cria uma variavel para conexão e iguala ela a conexão com o banco. connection = variavel com as informações do banco. authenticate() = função que faz a conexão com o banco 
     .then(function() { // Varifica se a conexão está ok
-        console.log('Extabelecida conexão com o banco de dados');
+        console.log('Estabelecida conexão com o banco de dados');
     })
     .catch(function(erro) { // Varifica se a conexão deu erro
-        console.log('Erros ao extabelecer a conexão com banco de dados');
+        console.log('Erros ao estabelecer a conexão com banco de dados');
     });
 
 // Cria a tabela no banco e atribui ela a uma variavel
