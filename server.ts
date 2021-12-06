@@ -26,7 +26,7 @@ var Produtos = connection.define('produtos', { // variavel_que_quarda_os_valores
 })
 
 // Conteudo a ser salvo
-connection.sync().then(function() {
+connection.sync().then(function() { // Se a conexão tive ok, sincroniza e roda a função
     Produtos.findOrCreate({ // Seleciona a tabela produtos verifica se as informações que ele deseja criar já está no banco. Se sim, ele passa direto sem salvar. Se não, ele cria
         where: { 
             nome:  'Livro', // Valor à ser atribuido as colunas
@@ -39,6 +39,7 @@ connection.sync().then(function() {
     console.log('Erro'); // Se ele tiver algum problema com a tabela dá erro
 })
 
+// Filtros
 connection.sync().then(function(){
     Produtos.findAll().then(function(produtos){   // Olha tudo que está cadastrado na tabela produtos     
         console.log('============= Produtos =============');
@@ -51,8 +52,8 @@ connection.sync().then(function(){
             
         });
     });
-                //   {where: {categoria: 'coisa', preco: 20}} -> filtrar 2 (filtra por 2 colunas)
-    Produtos.findAll({where: {id: [1, 3]}}).then(function(produtos){    // Olha o que está na tabela produtos e filtra por id  
+                //  {where: {id: [1, 3]}}  -> filtrar 2 (filtra por 2 colunas)
+    Produtos.findAll({where: {categoria: 'coisa', preco: 20}}).then(function(produtos){    // Olha o que está na tabela produtos e filtra por id  
         console.log('============= Filtro Categoria =============');
         produtos.forEach(produto => {
             console.log("Nome: " + produto.nome);
